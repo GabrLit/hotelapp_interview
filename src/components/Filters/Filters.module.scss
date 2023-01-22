@@ -1,0 +1,28 @@
+@import "../../index.scss";
+
+.wrapper {
+  position: sticky;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  transform: translateY(-50%);
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid black;
+  background-color: white;
+  padding: 1rem;
+
+  @include breakpoint("small") {
+    max-width: 80vw;
+  }
+}
