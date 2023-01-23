@@ -1,0 +1,13 @@
+.ErrorBar {
+  &_container {
+    position: absolute;
+    top: 0px;
+    color: black;
+    display: grid;
+    place-items: center;
+    height: 1rem;
+    width: 100%;
+    background-color: red;
+    z-index: 100;
+  }
+}

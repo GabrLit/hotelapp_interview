@@ -7,7 +7,10 @@ export const fetchHotelData = async (): Promise<[HotelDataType[], unknown]> => {
     const data = await response.json();
     return [data, null];
   } catch (err) {
-    return [[], err];
+    let message;
+    if (err instanceof Error) message = err.message;
+    else message = String(err);
+    return [[], message];
   }
 };
 
@@ -19,6 +22,9 @@ export const fetchRoomDataByHotelId = async (
     const data = await response.json();
     return [data.rooms, null];
   } catch (err) {
-    return [[], err];
+    let message;
+    if (err instanceof Error) message = err.message;
+    else message = String(err);
+    return [[], message];
   }
 };

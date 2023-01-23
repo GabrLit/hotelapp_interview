@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./HotelRoom.module.scss";
 import { useMediaQuery } from "usehooks-ts";
 import { RoomDataType } from "../../types";

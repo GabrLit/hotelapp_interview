@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./HotelItem.module.scss";
 import HotelHeader from "../HotelHeader/HotelHeader";
 import HotelRoom from "../HotelRoom/HotelRoom";
