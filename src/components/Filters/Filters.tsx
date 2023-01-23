@@ -1,24 +1,31 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { FiltersContext } from "../../context/FiltersContext";
 import IncrementDecrement from "../IncrementDecrement/IncrementDecrement";
 import StarsRating from "../StarsRating/StarsRating";
 import styles from "./Filters.module.scss";
 
 const Filters = () => {
-  const [children, setChildren] = useState(0);
-  const [adults, setAdults] = useState(0);
+  const {
+    starRating,
+    adultCount,
+    childrenCount,
+    setStarRating,
+    setAdultCount,
+    setChildrenCount,
+  } = useContext(FiltersContext);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <StarsRating />
+        <StarsRating value={starRating} setValue={setStarRating} />
         <IncrementDecrement
-          value={adults}
-          setValue={setAdults}
+          value={adultCount}
+          setValue={setAdultCount}
           label={"Adults"}
         />
         <IncrementDecrement
-          value={children}
-          setValue={setChildren}
+          value={childrenCount}
+          setValue={setChildrenCount}
           label={"Children"}
         />
       </div>

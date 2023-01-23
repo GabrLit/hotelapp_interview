@@ -1,0 +1,23 @@
+@import "../../index.scss";
+
+.container {
+  display: flex;
+  border-top: 1px solid black;
+  padding: 0.5rem 2rem;
+
+  @include breakpoint("medium") {
+    padding: 1rem;
+  }
+
+  @include breakpoint("small") {
+    flex-direction: column;
+  }
+}
+
+.roomDetails {
+  width: 60%;
+}
+
+.description {
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+@import "../../index.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+
+  border: solid 2px;
+  gap: 1rem;
+
+  @include breakpoint("medium") {
+    max-width: 550px;
+  }
+
+  @include breakpoint("small") {
+    width: 90%;
+  }
+}

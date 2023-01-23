@@ -1,16 +1,25 @@
 import { Rating } from "@mui/material";
-import { useState } from "react";
+import React from "react";
 
-const StarsRating = () => {
-  const [value, setValue] = useState(0);
+interface StarsRatingProps {
+  value: number;
+  setValue?: React.Dispatch<React.SetStateAction<number>>;
+  readOnly?: boolean;
+}
 
+const StarsRating = ({
+  readOnly = false,
+  value,
+  setValue,
+}: StarsRatingProps) => {
   return (
     <Rating
       name="hover-feedback"
       value={value}
+      size="large"
+      readOnly={readOnly}
       onChange={(_, newValue) => {
-        alert(newValue);
-        setValue(newValue as number);
+        setValue && setValue(newValue as number);
       }}
     />
   );

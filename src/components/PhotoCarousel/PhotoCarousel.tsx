@@ -12,7 +12,7 @@ const PhotoCarousel = ({ photosData }: PhotoCarouselProps) => {
     <div className={styles.carousel}>
       <AwesomeSlider className={settings.aws} bullets={false}>
         {photosData.map((item) => (
-          <div data-src={item.url} className={styles.image} />
+          <div key={item.url} data-src={item.url} className={styles.image} />
         ))}
       </AwesomeSlider>
     </div>
