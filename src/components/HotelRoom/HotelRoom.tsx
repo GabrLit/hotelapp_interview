@@ -8,7 +8,6 @@ interface HotelRoom {
   shortDescription: string;
   maxAdults: number;
   maxChildren: number;
-  maxOverall: number;
 }
 
 interface HotelRoomProps {

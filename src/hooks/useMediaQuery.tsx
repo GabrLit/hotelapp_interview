@@ -1,3 +1,7 @@
+// Important!
+//
+// This is not my code, it is third-party hook to handle media queries in React
+
 import { useEffect, useState } from "react";
 
 function useMediaQuery(query: string): boolean {

@@ -4,10 +4,10 @@ export interface RoomDataType {
   occupancy: {
     maxAdults: number;
     maxChildren: number;
-    maxOverall: number;
   };
   shortDescription: string;
   longDescription: string;
+  images: { url: string }[];
 }
 
 export interface HotelDataType {
@@ -17,4 +17,5 @@ export interface HotelDataType {
   address2: string;
   rooms: RoomDataType[];
   images: { url: string }[];
+  starRating: string;
 }

@@ -1,39 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
-import { FiltersContext } from "./FiltersContext";
-import * as HotelService from "../api/HotelService";
-import { adaptHotelData } from "../adapter/HotelAdapter";
-import { HotelDataType, RoomDataType } from "../types";
+import React, { createContext } from "react";
+import { HotelDataType } from "../types";
+import useFetchInitialData from "../hooks/useFetchInitialData";
+
+interface HotelContextType {
+  error: string;
+  hotelData: HotelDataType[];
+}
+
+export const HotelDataContext = createContext({} as HotelContextType);
 
 const HotelDataContextProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [error, setError] = useState("");
-  const [hotelData, setHotelData] = useState<HotelDataType[]>();
+  const { error, hotelData } = useFetchInitialData();
 
-  const { adultCount } = useContext(FiltersContext);
-
-  useEffect(() => {
-    const asyncFn = async () => {
-      const [hotelDataResponse, err] = await HotelService.fetchHotelData();
-      if (err) return setError(err as string);
-
-      const roomDataResponse: Record<string, RoomDataType[]> = {};
-      for (const hotel of hotelDataResponse) {
-        const [room, err] = await HotelService.fetchRoomDataByHotelId(hotel.id);
-        if (err) return setError(err as string);
-        roomDataResponse[hotel.id] = room;
-      }
-
-      const completeData = adaptHotelData(hotelDataResponse, roomDataResponse);
-      if (completeData) setHotelData(completeData);
-    };
-
-    asyncFn();
-  }, []);
-
-  return <div>{children}</div>;
+  return (
+    <HotelDataContext.Provider value={{ error, hotelData }}>
+      {children}
+    </HotelDataContext.Provider>
+  );
 };
 
 export default HotelDataContextProvider;
