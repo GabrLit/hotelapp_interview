@@ -2,47 +2,19 @@ import React from "react";
 import styles from "./HotelItem.module.scss";
 import HotelHeader from "../HotelHeader/HotelHeader";
 import HotelRoom from "../HotelRoom/HotelRoom";
+import { HotelDataType } from "../../types";
 
-const rooms = [
-  {
-    name: "Room 1 Name",
-    shortDescription:
-      "Halvah pastry tart marshmallow croissant chupa chups jelly-o.",
-    longDescription:
-      "Halvah pastry tart marshmallow croissant chupa chups jelly-o. Gummi bears toffee jelly beans jelly pie jujubes danish candy cheesecake. Gummies fruitcake bonbon topping gingerbread lemon drops. Candy canes dragée biscuit fruitcake. Candy canes tootsie roll lemon drops candy canes",
-    maxAdults: 2,
-    maxChildren: 2,
-    maxOverall: 2,
-  },
-  {
-    name: "Room 2 Name",
-    shortDescription:
-      "Halvah pastry tart marshmallow croissant chupa chups jelly-o.",
-    longDescription:
-      "Halvah pastry tart marshmallow croissant chupa chups jelly-o. Gummi bears toffee jelly beans jelly pie jujubes danish candy cheesecake. Gummies fruitcake bonbon topping gingerbread lemon drops. Candy canes dragée biscuit fruitcake. Candy canes tootsie roll lemon drops candy canes",
-    maxAdults: 2,
-    maxChildren: 2,
-    maxOverall: 2,
-  },
-  {
-    name: "Room 3 Name",
-    shortDescription:
-      "Halvah pastry tart marshmallow croissant chupa chups jelly-o.",
-    longDescription:
-      "Halvah pastry tart marshmallow croissant chupa chups jelly-o. Gummi bears toffee jelly beans jelly pie jujubes danish candy cheesecake. Gummies fruitcake bonbon topping gingerbread lemon drops. Candy canes dragée biscuit fruitcake. Candy canes tootsie roll lemon drops candy canes",
-    maxAdults: 2,
-    maxChildren: 2,
-    maxOverall: 2,
-  },
-];
+interface HotelItemProps {
+  hotel: HotelDataType;
+}
 
-export const HotelItem = () => {
+export const HotelItem = ({ hotel }: HotelItemProps) => {
   return (
     <div className={styles.container}>
-      <HotelHeader />
+      <HotelHeader hotel={hotel} />
       <div className={styles.roomList}>
-        {rooms.map((room) => (
-          <HotelRoom room={room} />
+        {hotel.rooms.map((room) => (
+          <HotelRoom key={room.id} room={room} />
         ))}
       </div>
     </div>

@@ -1,17 +1,10 @@
 import React from "react";
 import styles from "./HotelRoom.module.scss";
 import { useMediaQuery } from "usehooks-ts";
-
-interface HotelRoom {
-  name: string;
-  longDescription: string;
-  shortDescription: string;
-  maxAdults: number;
-  maxChildren: number;
-}
+import { RoomDataType } from "../../types";
 
 interface HotelRoomProps {
-  room: HotelRoom;
+  room: RoomDataType;
 }
 
 const HotelRoom = ({ room }: HotelRoomProps) => {
@@ -21,8 +14,8 @@ const HotelRoom = ({ room }: HotelRoomProps) => {
     <div className={styles.container}>
       <div className={styles.roomDetails}>
         <h3>{room.name}</h3>
-        <h4>Adults: {room.maxAdults}</h4>
-        <h4>Children: {room.maxChildren}</h4>
+        <h4>Adults: {room.occupancy.maxAdults}</h4>
+        <h4>Children: {room.occupancy.maxChildren}</h4>
       </div>
       <div className={styles.description}>
         <p>{matches ? room.shortDescription : room.longDescription}</p>

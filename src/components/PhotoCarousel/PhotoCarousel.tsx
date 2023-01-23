@@ -4,15 +4,15 @@ import "react-awesome-slider/dist/styles.css";
 import settings from "./settings.module.scss";
 
 interface PhotoCarouselProps {
-  photosData: any[];
+  photosData: string[];
 }
 
 const PhotoCarousel = ({ photosData }: PhotoCarouselProps) => {
   return (
     <div className={styles.carousel}>
       <AwesomeSlider className={settings.aws} bullets={false}>
-        {photosData.map((item) => (
-          <div key={item.url} data-src={item.url} className={styles.image} />
+        {photosData.map((photo) => (
+          <div key={photo} data-src={photo} className={styles.image} />
         ))}
       </AwesomeSlider>
     </div>

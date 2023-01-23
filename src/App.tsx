@@ -11,8 +11,6 @@ function App() {
       <HeroSection />
       <Filters />
       <HotelList />
-
-      <div style={{ height: "1500px", width: "100%" }}></div>
     </div>
   );
 }

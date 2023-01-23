@@ -5,11 +5,12 @@ import styles from "./HotelList.module.scss";
 
 const HotelList = () => {
   const { dataToDisplay } = useFilters();
-  console.log(dataToDisplay);
 
   return (
     <div className={styles.container}>
-      <HotelItem />
+      {dataToDisplay.map((hotel) => (
+        <HotelItem key={hotel.id} hotel={hotel} />
+      ))}
     </div>
   );
 };
