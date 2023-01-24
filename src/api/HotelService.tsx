@@ -1,7 +1,9 @@
 import { BASE_URL } from "../constants";
 import { HotelDataType, RoomDataType } from "../types";
 
-export const fetchHotelData = async (): Promise<[HotelDataType[], unknown]> => {
+export const fetchHotelData = async (): Promise<
+  [HotelDataType[], string | null]
+> => {
   try {
     const response = await fetch(BASE_URL + "/hotels?collection-id=OBMNG");
     const data = await response.json();
@@ -16,7 +18,7 @@ export const fetchHotelData = async (): Promise<[HotelDataType[], unknown]> => {
 
 export const fetchRoomDataByHotelId = async (
   hotelId: string
-): Promise<[RoomDataType[], unknown]> => {
+): Promise<[RoomDataType[], string | null]> => {
   try {
     const response = await fetch(BASE_URL + `/roomRates/OBMNG/${hotelId}`);
     const data = await response.json();

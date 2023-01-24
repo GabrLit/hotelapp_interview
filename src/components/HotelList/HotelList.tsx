@@ -1,10 +1,12 @@
-import useFilters from "../../hooks/useFilters";
 import { HotelItem } from "../HotelItem/HotelItem";
 import styles from "./HotelList.module.scss";
+import { HotelDataType } from "../../types";
 
-const HotelList = () => {
-  const { dataToDisplay } = useFilters();
+interface HotelListProps {
+  dataToDisplay: HotelDataType[];
+}
 
+const HotelList = ({ dataToDisplay }: HotelListProps) => {
   return (
     <div className={styles.container}>
       {dataToDisplay.map((hotel) => (

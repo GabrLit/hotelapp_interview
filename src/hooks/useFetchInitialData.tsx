@@ -11,12 +11,13 @@ const useFetchInitialData = () => {
   useEffect(() => {
     const asyncFn = async () => {
       const [hotelDataResponse, err] = await HotelService.fetchHotelData();
-      if (err) return setError(err as string);
+      if (err) return setError(err);
 
       const roomDataResponse: Record<string, RoomDataType[]> = {};
+
       for (const hotel of hotelDataResponse) {
         const [room, err] = await HotelService.fetchRoomDataByHotelId(hotel.id);
-        if (err) return setError(err as string);
+        if (err) return setError(err);
         roomDataResponse[hotel.id] = room;
       }
 
