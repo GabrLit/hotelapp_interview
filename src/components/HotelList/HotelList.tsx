@@ -10,11 +10,12 @@ interface HotelListProps {
 }
 
 const HotelList = ({ dataToDisplay, isLoaded }: HotelListProps) => {
-  if (!isLoaded) return <CircularProgress className={styles.noDataContainer} />;
+  if (!isLoaded)
+    return <CircularProgress className={styles.hotelList_noDataContainer} />;
   return (
-    <div className={styles.container}>
+    <div className={styles.hotelList_container}>
       {!dataToDisplay.length && (
-        <div className={styles.noDataContainer}>{notFoundMsg}</div>
+        <div className={styles.hotelList_noDataContainer}>{notFoundMsg}</div>
       )}
 
       {Boolean(dataToDisplay.length) &&

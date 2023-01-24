@@ -9,10 +9,10 @@ interface PhotoCarouselProps {
 
 const PhotoCarousel = ({ photosData }: PhotoCarouselProps) => {
   return (
-    <div className={styles.carousel}>
+    <div className={styles.photoCarousel_carousel}>
       <AwesomeSlider className={settings.aws} bullets={false}>
         {photosData.map((photo) => (
-          <div key={photo} data-src={photo} className={styles.image} />
+          <div key={photo} data-src={photo} />
         ))}
       </AwesomeSlider>
     </div>

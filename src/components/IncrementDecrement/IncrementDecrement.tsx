@@ -13,8 +13,8 @@ const IncrementDecrement = ({
   setValue,
 }: IncrementDecrementProps) => {
   return (
-    <div className={styles.container}>
-      <label htmlFor="input" className={styles.label}>
+    <div className={styles.incrementDecrement_container}>
+      <label htmlFor="input" className={styles.incrementDecrement_label}>
         {label}
       </label>
 
@@ -28,7 +28,7 @@ const IncrementDecrement = ({
       </button>
       <input
         id="input"
-        className={styles.input}
+        className={styles.incrementDecrement_input}
         min={0}
         maxLength={2}
         value={value}
@@ -38,7 +38,7 @@ const IncrementDecrement = ({
         }}
       ></input>
       <button
-        className={styles.button}
+        className={styles.incrementDecrement_button}
         onClick={() => {
           setValue((prev) => prev + 1);
         }}

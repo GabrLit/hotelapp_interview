@@ -1,12 +1,14 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 5rem;
-  width: 100%;
-}
+.hotelList {
+  &_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5rem;
+    width: 100%;
+  }
 
-.noDataContainer {
-  margin-top: 5rem;
+  &_noDataContainer {
+    margin-top: 5rem;
+  }
 }

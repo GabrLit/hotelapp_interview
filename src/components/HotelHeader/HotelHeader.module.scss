@@ -1,22 +1,24 @@
 @import "../../index.scss";
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 2rem;
+.hotelHeader {
+  &_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem;
 
-  @include breakpoint("medium") {
-    gap: 1rem;
-    flex-direction: column;
-    padding: 1rem;
+    @include breakpoint("medium") {
+      gap: 1rem;
+      flex-direction: column;
+      padding: 1rem;
+    }
   }
-}
 
-.details {
-  margin-right: auto;
+  &_details {
+    margin-right: auto;
 
-  @include breakpoint("medium") {
-    order: 3;
+    @include breakpoint("medium") {
+      order: 3;
+    }
   }
 }

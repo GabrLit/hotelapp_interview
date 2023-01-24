@@ -1,9 +1,11 @@
 @import "../../index.scss";
 
-.carousel {
-  width: 300px;
+.photoCarousel {
+  &_carousel {
+    width: 300px;
 
-  @include breakpoint("medium") {
-    width: auto;
+    @include breakpoint("medium") {
+      width: auto;
+    }
   }
 }

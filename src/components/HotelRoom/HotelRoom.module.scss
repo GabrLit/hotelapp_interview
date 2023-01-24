@@ -1,24 +1,26 @@
 @import "../../index.scss";
 
-.container {
-  display: flex;
-  border-top: 1px solid black;
-  padding: 0.5rem 2rem;
+.hotelRoom {
+  &_container {
+    display: flex;
+    border-top: 1px solid black;
+    padding: 0.5rem 2rem;
 
-  @include breakpoint("medium") {
-    padding: 1rem;
+    @include breakpoint("medium") {
+      padding: 1rem;
+    }
+
+    @include breakpoint("small") {
+      flex-direction: column;
+    }
   }
 
-  @include breakpoint("small") {
-    flex-direction: column;
+  &_roomDetails {
+    width: 60%;
   }
-}
 
-.roomDetails {
-  width: 60%;
-}
-
-.description {
-  overflow: hidden;
-  width: 100%;
+  &_description {
+    overflow: hidden;
+    width: 100%;
+  }
 }

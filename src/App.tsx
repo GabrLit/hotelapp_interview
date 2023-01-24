@@ -12,7 +12,7 @@ function App() {
   const { dataToDisplay } = useFilters();
 
   return (
-    <div className={styles.container}>
+    <div className={styles.App_container}>
       <ErrorBar />
       <HeroSection />
       <Filters />

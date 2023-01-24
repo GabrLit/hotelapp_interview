@@ -9,9 +9,9 @@ interface HotelHeaderProps {
 
 const HotelHeader = ({ hotel }: HotelHeaderProps) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.hotelHeader_container}>
       <PhotoCarousel photosData={hotel.images.map((item) => item.url)} />
-      <div className={styles.details}>
+      <div className={styles.hotelHeader_details}>
         <h1>{hotel.name}</h1>
         <h2>{hotel.address1}</h2>
         <h2>{hotel.address2}</h2>

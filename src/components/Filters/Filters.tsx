@@ -15,8 +15,8 @@ const Filters = () => {
   } = useContext(FiltersContext);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
+    <div className={styles.filters_wrapper}>
+      <div className={styles.filters_container}>
         <StarsRating value={starRating} setValue={setStarRating} />
         <IncrementDecrement
           value={adultCount}

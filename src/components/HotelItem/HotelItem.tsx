@@ -9,13 +9,11 @@ interface HotelItemProps {
 
 export const HotelItem = ({ hotel }: HotelItemProps) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.hotelItem_container}>
       <HotelHeader hotel={hotel} />
-      <div className={styles.roomList}>
-        {hotel.rooms.map((room) => (
-          <HotelRoom key={room.id} room={room} />
-        ))}
-      </div>
+      {hotel.rooms.map((room) => (
+        <HotelRoom key={room.id} room={room} />
+      ))}
     </div>
   );
 };
