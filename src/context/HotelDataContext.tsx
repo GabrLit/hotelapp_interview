@@ -5,6 +5,7 @@ import useFetchInitialData from "../hooks/useFetchInitialData";
 interface HotelContextType {
   error: string;
   hotelData: HotelDataType[];
+  isLoaded: boolean;
 }
 
 export const HotelDataContext = createContext({} as HotelContextType);
@@ -14,10 +15,10 @@ const HotelDataContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { error, hotelData } = useFetchInitialData();
+  const { error, hotelData, isLoaded } = useFetchInitialData();
 
   return (
-    <HotelDataContext.Provider value={{ error, hotelData }}>
+    <HotelDataContext.Provider value={{ error, hotelData, isLoaded }}>
       {children}
     </HotelDataContext.Provider>
   );

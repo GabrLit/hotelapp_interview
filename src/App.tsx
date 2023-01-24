@@ -4,8 +4,11 @@ import HeroSection from "./components/HeroSection/HeroSection";
 import HotelList from "./components/HotelList/HotelList";
 import ErrorBar from "./components/ErrorBar/ErrorBar";
 import useFilters from "./hooks/useFilters";
+import { useContext } from "react";
+import { HotelDataContext } from "./context/HotelDataContext";
 
 function App() {
+  const { isLoaded } = useContext(HotelDataContext);
   const { dataToDisplay } = useFilters();
 
   return (
@@ -13,7 +16,7 @@ function App() {
       <ErrorBar />
       <HeroSection />
       <Filters />
-      <HotelList dataToDisplay={dataToDisplay} />
+      <HotelList dataToDisplay={dataToDisplay} isLoaded={isLoaded} />
     </div>
   );
 }

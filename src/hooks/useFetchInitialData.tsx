@@ -6,6 +6,7 @@ import { HotelDataType, RoomDataType } from "../types";
 
 const useFetchInitialData = () => {
   const [error, setError] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
   const [hotelData, setHotelData] = useState<HotelDataType[]>([]);
 
   useEffect(() => {
@@ -22,12 +23,15 @@ const useFetchInitialData = () => {
       }
 
       const completeData = adaptHotelData(hotelDataResponse, roomDataResponse);
-      if (completeData) setHotelData(completeData);
+      if (completeData) {
+        setHotelData(completeData);
+        setIsLoaded(true);
+      }
     };
     asyncFn();
   }, []);
 
-  return { hotelData, error };
+  return { hotelData, error, isLoaded };
 };
 
 export default useFetchInitialData;
