@@ -8,12 +8,13 @@ import { useContext } from "react";
 import { HotelDataContext } from "./context/HotelDataContext";
 
 function App() {
+  const { error } = useContext(HotelDataContext);
   const { isLoaded } = useContext(HotelDataContext);
   const { dataToDisplay } = useFilters();
 
   return (
     <div className={styles.App_container}>
-      <ErrorBar />
+      <ErrorBar error={error} />
       <HeroSection />
       <Filters />
       <HotelList dataToDisplay={dataToDisplay} isLoaded={isLoaded} />

@@ -3,7 +3,7 @@ import { Rating } from "@mui/material";
 interface StarsRatingProps {
   value: number;
   readOnly?: boolean;
-  onStarRatingChange: (rating: number) => void;
+  onStarRatingChange?: (rating: number) => void;
 }
 
 const StarsRating = ({
@@ -17,7 +17,9 @@ const StarsRating = ({
       value={value}
       size="large"
       readOnly={readOnly}
-      onChange={(_, newValue) => newValue && onStarRatingChange(newValue)}
+      onChange={(_, newValue) =>
+        onStarRatingChange && onStarRatingChange(newValue as number)
+      }
     />
   );
 };
