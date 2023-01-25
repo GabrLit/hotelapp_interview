@@ -1,16 +1,15 @@
 import { Rating } from "@mui/material";
-import React from "react";
 
 interface StarsRatingProps {
   value: number;
-  setValue?: React.Dispatch<React.SetStateAction<number>>;
   readOnly?: boolean;
+  onStarRatingChange: (rating: number) => void;
 }
 
 const StarsRating = ({
   readOnly = false,
   value,
-  setValue,
+  onStarRatingChange,
 }: StarsRatingProps) => {
   return (
     <Rating
@@ -18,9 +17,7 @@ const StarsRating = ({
       value={value}
       size="large"
       readOnly={readOnly}
-      onChange={(_, newValue) => {
-        setValue && setValue(newValue as number);
-      }}
+      onChange={(_, newValue) => newValue && onStarRatingChange(newValue)}
     />
   );
 };

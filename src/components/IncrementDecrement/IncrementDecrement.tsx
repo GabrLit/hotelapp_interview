@@ -1,16 +1,26 @@
 import React from "react";
+import { FilterNameTypes } from "../../context/FiltersContext";
 import styles from "./IncrementDecrement.module.scss";
 
 interface IncrementDecrementProps {
+  name: FilterNameTypes;
   value: number;
   label?: string;
-  setValue: React.Dispatch<React.SetStateAction<number>>;
+  onIncrement: (name: FilterNameTypes) => void;
+  onDecrement: (name: FilterNameTypes) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    name: FilterNameTypes
+  ) => void;
 }
 
 const IncrementDecrement = ({
+  name,
   value = 0,
   label,
-  setValue,
+  onIncrement,
+  onDecrement,
+  onChange,
 }: IncrementDecrementProps) => {
   return (
     <div className={styles.incrementDecrement_container}>
@@ -18,12 +28,7 @@ const IncrementDecrement = ({
         {label}
       </label>
 
-      <button
-        className={styles.button}
-        onClick={() => {
-          if (value > 0) setValue((prev) => prev - 1);
-        }}
-      >
+      <button className={styles.button} onClick={() => onDecrement(name)}>
         -
       </button>
       <input
@@ -32,16 +37,11 @@ const IncrementDecrement = ({
         min={0}
         maxLength={2}
         value={value}
-        onChange={(e) => {
-          if (e.target.value === "") setValue(0);
-          setValue(Number(e.target.value.replace(/\D/g, "")));
-        }}
+        onChange={(e) => onChange(e, name)}
       ></input>
       <button
         className={styles.incrementDecrement_button}
-        onClick={() => {
-          setValue((prev) => prev + 1);
-        }}
+        onClick={() => onIncrement(name)}
       >
         +
       </button>

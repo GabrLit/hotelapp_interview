@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FiltersContext } from "../../context/FiltersContext";
+import { FilterNameTypes, FiltersContext } from "../../context/FiltersContext";
 import IncrementDecrement from "../IncrementDecrement/IncrementDecrement";
 import StarsRating from "../StarsRating/StarsRating";
 import styles from "./Filters.module.scss";
@@ -9,23 +9,33 @@ const Filters = () => {
     starRating,
     adultCount,
     childrenCount,
-    setStarRating,
-    setAdultCount,
-    setChildrenCount,
+    onStarRatingChange,
+    onIncrement,
+    onDecrement,
+    onChange,
   } = useContext(FiltersContext);
 
   return (
     <div className={styles.filters_wrapper}>
       <div className={styles.filters_container}>
-        <StarsRating value={starRating} setValue={setStarRating} />
+        <StarsRating
+          value={starRating}
+          onStarRatingChange={onStarRatingChange}
+        />
         <IncrementDecrement
+          name={FilterNameTypes.ADULT}
           value={adultCount}
-          setValue={setAdultCount}
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
+          onChange={onChange}
           label={"Adults"}
         />
         <IncrementDecrement
+          name={FilterNameTypes.CHILD}
           value={childrenCount}
-          setValue={setChildrenCount}
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
+          onChange={onChange}
           label={"Children"}
         />
       </div>
